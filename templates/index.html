@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="shortcut icon" href="static/img/favicon.ico">
+    <link rel="stylesheet" href="static/css/main.css">
+</head>
+<body>
+    <div class="principal">
+        <div class="wrap">        
+            <div class="form">
+                <h1 class="header">To-Do List</h1> 
+                <form method="POST" action="{{ url_for('index') }}" autocomplete="off">
+                    <input type="text" class="input" name="task" placeholder="Title..." autocomplete="off">
+                    <button type="submit" class="botton">Add</button>
+                </form>
+            </div>
+            <p id="p" class="p"></p>
+        </div>
+    </div>
+    <div class="tareas">
+        <div class="wrap">
+            <ul class="list" id="list">
+                {% for task in tasks -%}
+                    <li>
+                        {{ task }}
+                        <span class="close">
+                            <form method="POST" action="{{ url_for('subtrac') }}">
+                                <input type="hidden" value="{{ task }}" name="close">
+                                <button type="submit" style="background: transparent; border: none;" 
+                                    onmouseover="this.style.color='white';" onmouseout="this.style.color='black';">
+                                    X
+                                </button>
+                            </form>
+                        </span>
+                    </li>
+                {% endfor -%}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
