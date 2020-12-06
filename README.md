@@ -1,3 +1,3 @@
-# To-Do-List
+# To-Do List
 
 Todo web using Flask (Python Framework for websites)
