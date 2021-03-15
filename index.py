@@ -3,9 +3,9 @@ from flask import Flask, render_template, redirect, request
 
 app = Flask(__name__)
 
-base_key = 'appf1xLbya3v7if5n'
+base_key = 'secret_key'
 table_name = 'Tasks'
-airtable = Airtable(base_key, table_name, 'keyXvtazELAUx8WtK')
+airtable = Airtable(base_key, table_name, 'airtable_api_key')
 
 def get_tasks():
     tasks = []
